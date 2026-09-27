@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: perio
+      POSTGRES_PASSWORD: perio
+      POSTGRES_DB: perio
+    ports:
+      - "5432:5432"
+    volumes:
+      - perio-db:/var/lib/postgresql/data
+
+volumes:
+  perio-db:
